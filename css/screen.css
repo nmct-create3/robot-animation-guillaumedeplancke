@@ -43,6 +43,13 @@ html {
 }
 
 body {
+  background-color: var(--global-color-back);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
 }
 
 /*
@@ -133,15 +140,93 @@ body {
 */
 
 .c-robot {
+  max-width: 300px;
+  fill: var(--global-html-color);
 }
 
 .c-robot__shadow {
+  fill: var(--c-robot__shadow-fil, black);
+  opacity: 0.1;
+}
+
+.c-robot--css-anim #Robot {
+  animation: robotHover 0.75s ease-in-out infinite alternate;
+}
+
+.c-robot--css-anim #Shadow {
+  transform-origin: 50% 100%;
+  animation: shadowPulse 0.75s ease-in-out infinite alternate;
+}
+
+@keyframes shadowPulse {
+  100% {
+    transform: scale(0.75);
+  }
+}
+
+@keyframes robotHover {
+  0% {
+    transform: translateY(2%);
+  }
+  100% {
+    transform: translateY(-2%);
+  }
 }
 
 
 /*
     Component: Controls
 */
+
+.c-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.c-controls__list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px; /* needed to fix some weird problem */
+}
+
+.c-controls__button {
+  color: white;
+  text-transform: uppercase;
+
+  margin-left: 10px;
+  padding: 15px;
+  border-radius: 50px;
+}
+
+.c-controls__radio:checked + .c-controls__button{
+  background-color: #1288B3;
+}
+
+.c-play-icon {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+.c-controls__button--pause {
+  background-color: #1288B3;
+  color: white;
+  padding: 15px;
+  border-radius: 100%;
+}
+
+.c-play-icon--play {
+  display: none;
+}
+
+.c-controls__button--pause-checkbox:checked + .c-controls__buton--pause-label .c-play-icon--play {
+  display: block;
+}
+
+.c-controls__button--pause-checkbox:checked + .c-controls__buton--pause-label .c-play-icon--pause {
+  display: none;
+}
 
 /*------------------------------------*\
 #UTILITIES
