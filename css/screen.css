@@ -187,7 +187,7 @@ body {
 .c-controls__list {
   display: flex;
   flex-direction: row;
-  margin-top: 10px; /* needed to fix some weird problem */
+  align-items: center;
 }
 
 .c-controls__button {
